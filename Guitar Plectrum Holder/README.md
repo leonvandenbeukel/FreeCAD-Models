@@ -3,4 +3,4 @@
 Print in 2 parts and (super)glue them together.
 
 
-[[Guitar Plectrum Holder/img/photo.png|alt=Photo]]
+[[https://github.com/leonvandenbeukel/FreeCAD-Models/blob/master/Guitar%20Plectrum%20Holder/img/photo.png|alt=Photo]]
