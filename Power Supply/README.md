@@ -10,4 +10,4 @@
 
 ### 3D Printing
 
-0.3 with support on.
+0.3 resolution, 10% infill and support enabled.
