@@ -7,3 +7,7 @@
 * Switch
 * Banana plugs female
 * Input connector
+
+### 3D Printing
+
+0.3 with support on.
