@@ -13,3 +13,13 @@ Voltage can be regulated. Input voltage can vary from 12 to 34 volt.
 ### 3D Printing
 
 0.3 resolution, 10% infill and support enabled.
+
+### Images and photos
+
+![FreeCAD model](https://github.com/leonvandenbeukel/FreeCAD-Models/blob/master/Power%20Supply/Image/Box.png)
+
+![Sideview](https://github.com/leonvandenbeukel/FreeCAD-Models/blob/master/Power%20Supply/Image/sideview.jpg)
+
+![Top](https://github.com/leonvandenbeukel/FreeCAD-Models/blob/master/Power%20Supply/Image/top.jpg)
+
+![Usage](https://github.com/leonvandenbeukel/FreeCAD-Models/blob/master/Power%20Supply/Image/usage.jpg)
