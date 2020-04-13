@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+#
+# Macro to generate boxes and export them as stl files
+#
+# Important:
+# Open the Box12System.FCStd file before running this macro
+#
+# 20200413 Leon van den Beukel
+# 
+import FreeCAD
+import Mesh
+import os
+
+path = os.path.realpath(__file__) 
+path = os.path.dirname(path)
+path = path + "\\STL\\"
+maxColumns = 5
+maxRows = 5
+
+for c in range(1, maxColumns+1):
+	FreeCAD.Console.PrintMessage("Column: " + str(c) + "\n")
+	for r in range(1, maxRows+1):
+		FreeCAD.Console.PrintMessage("Row: " + str(r) + "\n")
+		App.ActiveDocument.Spreadsheet.set('B2', str(c))
+		App.ActiveDocument.Spreadsheet.set('B3', str(r))
+		App.ActiveDocument.recompute()
+		__objs__=[]
+		__objs__.append(FreeCAD.getDocument("Box12System").getObject("Fillet001"))
+		file = str(c)+"x"+str(r)+".stl"
+		FreeCAD.Console.PrintMessage("Exporting "+file)
+		file = path+file
+		Mesh.export(__objs__,file)
+		del __objs__
