@@ -9,6 +9,7 @@
 #include <Arduino.h>
 #include <Joystick.h>
 #include "Keyboard.h"
+#include <Bounce2.h>
 
 int xPin = A1;
 int buttonPin = 9;
@@ -17,6 +18,13 @@ int xPosition = 0;
 int buttonState = 0;
 
 Joystick_ Joystick;
+
+// Sequential shifter
+#define NUM_BUTTONS 2
+const uint8_t BUTTON_PINS[NUM_BUTTONS] = {2, 3};
+Bounce * buttons = new Bounce[NUM_BUTTONS];
+const uint8_t BUTTON_STATES[NUM_BUTTONS] = {0, 0};
+
 
 void setup()
 {
@@ -45,6 +53,12 @@ void setup()
     Joystick.setThrottleRange(0, 255);
     Joystick.begin();
   }
+
+  // Sequential shifter
+  for (int i = 0; i < NUM_BUTTONS; i++) {
+    buttons[i].attach( BUTTON_PINS[i] , INPUT_PULLUP  );        // setup the bounce instance for the current button
+    buttons[i].interval(25);                                    // interval in ms
+  }
 }
 
 void loop()
@@ -62,6 +76,15 @@ void loop()
   else
   {
     Joystick.setThrottle(mapped);
-  }
+  }  
 
+  // Sequential shifter  
+  for (int i = 0; i < NUM_BUTTONS; i++)  {   
+    buttons[i].update();
+    if ( buttons[i].risingEdge() ) {
+      Joystick.pressButton(i);
+      delay(30);
+      Joystick.releaseButton(i);
+    }
+  }
 }
