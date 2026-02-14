@@ -1,2 +1,4 @@
 *.FCStd1
 /Electric Pipe Connectors/archive/*
+.DS_Store
+*.FCBak
